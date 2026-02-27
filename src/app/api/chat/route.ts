@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 
     // --- 通义千问 ---
     if (model === '通义千问') {
-      apiKey = process.env.DASHSCOPE_API_KEY;
+      apiKey = process.env.DASHSCOPE_API_KEY!;
       if (!apiKey) throw new Error('未配置 DASHSCOPE_API_KEY');
       url = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions';
       payload = { model: 'qwen-plus', messages, stream: false };
