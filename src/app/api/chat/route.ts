@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     }
     // --- DeepSeek ---
     else if (model === 'DeepSeek') {
-      apiKey = process.env.DEEPSEEK_API_KEY;
+      apiKey = process.env.DEEPSEEK_API_KEY!;
       if (!apiKey) throw new Error('未配置 DEEPSEEK_API_KEY');
       url = 'https://api.deepseek.com/chat/completions';
       payload = { model: 'deepseek-chat', messages, stream: false };
